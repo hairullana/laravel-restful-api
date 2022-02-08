@@ -22,6 +22,9 @@ use App\Http\Controllers\API\FormController;
 
 Route::group(['middleware' => 'auth:sanctum'], function(){
   Route::post('/create', [FormController::class, 'create']);
+  Route::get('/edit/{id}', [FormController::class, 'edit']);
+  Route::post('/edit/{id}', [FormController::class, 'update']);
+  Route::post('/delete/{id}', [FormController::class, 'delete']);
   Route::get('/logout', [FormController::class, 'logout']);
 });
 
