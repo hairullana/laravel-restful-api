@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\FormController;
+use App\Http\Controllers\API\ScoreController;
+use App\Models\Score;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,10 +23,15 @@ use App\Http\Controllers\API\FormController;
 // });
 
 Route::group(['middleware' => 'auth:sanctum'], function(){
+  // crud students
   Route::post('/create', [FormController::class, 'create']);
   Route::get('/edit/{id}', [FormController::class, 'edit']);
   Route::post('/edit/{id}', [FormController::class, 'update']);
   Route::post('/delete/{id}', [FormController::class, 'delete']);
+
+  // crud scores with multiple data
+  Route::post('/score/create', [ScoreController::class, 'create']);
+
   Route::get('/logout', [FormController::class, 'logout']);
 });
 
