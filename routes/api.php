@@ -31,6 +31,7 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
 
   // crud scores with multiple data
   Route::post('/score/create', [ScoreController::class, 'create']);
+  Route::get('/score/show/{id}', [ScoreController::class, 'show']);
 
   Route::get('/logout', [FormController::class, 'logout']);
 });

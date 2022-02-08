@@ -40,4 +40,13 @@ class ScoreController extends Controller
             'score' => $score
         ], 200);
     }
+
+    public function show($id){
+        $student = Student::find($id)->with('score')->first();
+
+        return response()->json([
+            'message' => 'success',
+            'student' => $student
+        ], 200);
+    }
 }
